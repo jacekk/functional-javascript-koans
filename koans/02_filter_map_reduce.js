@@ -67,6 +67,30 @@ describe("Map", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // fibonacci :: Number → Number
+    const fibonacci = (n) => {
+      let prev = 1;
+      let curr = 0;
+
+      for (let i = 0; i < n; i++) {
+        curr += prev;
+        prev = curr - prev;
+      }
+
+      return curr;
+    }
+    
+    /* functional approach
+    const fibonacci = (n) => {
+      if (n === 0) {
+        return 0;
+      }
+      if (n === 1) {
+        return 1;
+      }
+
+      return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+    */
 
     /***************************************************************/
 
@@ -80,6 +104,15 @@ describe("Map", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // map :: ((a → b), [a]) → [b]
+    const map = (predicate, list) => {
+      const mapped = [];
+
+      for (let i = 0; i < list.length; i++) {
+        mapped.push(predicate(list[i]));
+      }
+
+      return mapped;
+    }
 
     /***************************************************************/
 
@@ -95,6 +128,15 @@ describe("Map", () => {
     // HINT: You can do it in one line using Array.from (or spread operator), array constructor and built-in map function
 
     // range :: (Number, Number) → [Number]
+    const range = (from, to) => {
+      const out = [];
+
+      for (let i = from; i <= to; i++) {
+        out.push(i);
+      }
+
+      return out;
+    }
 
     /***************************************************************/
 
@@ -114,6 +156,15 @@ describe("Reduce", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // fromPairs :: ({ [a]: b }) → [{a, b}]
+    const fromPairs = (pairs) => {
+      const reducer = (memo, item) => {
+        const [key, value] = item;
+        memo[key] = value;
+        return memo;
+      };
+
+      return pairs.reduce(reducer, {});
+    }
 
     /***************************************************************/
 
@@ -126,6 +177,12 @@ describe("Reduce", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // map :: ((a → b), [a]) → [b]
+    const map = (predicate, list) => {
+      return list.reduce((memo, item) => {
+        memo.push(predicate(item));
+        return memo;
+      }, []);
+    }
 
     /***************************************************************/
 
@@ -139,6 +196,14 @@ describe("Reduce", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // filter :: ((a → Boolean), [a]) → [a]
+    const filter = (predicate, list) => {
+      return list.reduce((memo, item) => {
+        if (predicate(item)) {
+          memo.push(item);
+        }
+        return memo;
+      }, [])
+    };
 
     /***************************************************************/
 

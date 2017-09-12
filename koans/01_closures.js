@@ -40,6 +40,22 @@ describe("Closures", () => {
         state[item] = 1;
         return true;
       }
+
+      // OR
+
+      /* @todo check this implemenation
+      const set = new Set();
+
+      return (item) => {
+        if (set.has(item)) {
+          return false;
+        }
+
+        set.add(item);
+
+        return true;
+      }
+      */
     }
 
     /***************************************************************/
