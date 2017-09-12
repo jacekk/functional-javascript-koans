@@ -4,6 +4,10 @@ describe("Closures", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // counter :: () → () → Number
+    const counter = () => {
+      let state = 0;
+      return () => ++state;
+    };
 
     /***************************************************************/
 
@@ -26,6 +30,17 @@ describe("Closures", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // unique :: () → a → Boolean
+    const unique = () => {
+      const state = {};
+
+      return (item) => {
+        if (state[item]) {
+          return false;
+        }
+        state[item] = 1;
+        return true;
+      }
+    }
 
     /***************************************************************/
 

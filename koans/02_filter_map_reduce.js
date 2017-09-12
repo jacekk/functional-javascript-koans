@@ -4,6 +4,7 @@ describe("Filter", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // predicate :: Number → Boolean
+    const predicate = (item) => item % 2 === 0;
 
     /***************************************************************/
 
@@ -20,6 +21,11 @@ describe("Filter", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // predicate :: String → Boolean
+    const predicate = (str) => {
+      const reversed = str.split('').reverse().join('');
+
+      return str.toLowerCase() !== reversed.toLowerCase();
+    }
 
     /***************************************************************/
 
@@ -33,6 +39,17 @@ describe("Filter", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // filter :: ((a → Boolean), [a]) → [a]
+    const filter = (project, list) => {
+      const filtered = [];
+
+      for (let i = 0; i < list.length; i++) {
+        if (project(list[i])) {
+          filtered.push(list[i]);
+        }
+      }
+
+      return filtered;
+    };
 
     /***************************************************************/
 
