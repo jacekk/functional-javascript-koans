@@ -5,6 +5,16 @@ describe("Function composition", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // slugify :: String -> String
+    const slugify = (input) => {
+      return join(
+        '-',
+        words(
+          deburr(
+            toLower(input)
+          )
+        )
+      );
+    };
 
     /***************************************************************/
 
@@ -18,6 +28,12 @@ describe("Function composition", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // slugify :: String -> String
+    const slugify = compose(
+      toLower,
+      deburr,
+      join('-'),
+      words
+    );
 
     /***************************************************************/
 
@@ -31,6 +47,12 @@ describe("Function composition", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // slugify :: String -> String
+    const slugify = flow(
+      words,
+      join('-'),
+      deburr,
+      toLower
+    );
 
     /***************************************************************/
 

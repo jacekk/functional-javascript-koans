@@ -3,6 +3,7 @@ describe("Immutability", () => {
     let recipients = ["foo@example.com", "bar@example.com"];
 
     /********************* YOUR IMPLEMENTATION *********************/
+    Object.freeze(recipients);
 
     // HINT: Look for an appropriate method on the Object constructor
 
