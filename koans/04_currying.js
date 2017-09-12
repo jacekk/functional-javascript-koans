@@ -3,6 +3,14 @@ describe("Currying", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // curry :: (* → a) → (* → a)
+    const curry = function (fn) {
+      return function curried(...outer) {
+        if (outer.length >= fn.length) {
+          return fn(...outer);
+        }
+        return (...inner) => curried(...outer, ...inner);
+      };
+    };
 
     /***************************************************************/
 
